@@ -1,11 +1,12 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QPushButton, QLabel, QVBoxLayout, QHBoxLayout,
+    QLabel, QVBoxLayout, QHBoxLayout,
     QLineEdit, QScrollArea, QWidget, QFrame,
     QDialog, QFormLayout, QSpinBox, QMessageBox,
 )
 
 from ui.tela_base import TelaBase
+from ui.botao import BotaoOrbe
 import db
 
 _DIALOG_STYLE = """
@@ -85,10 +86,10 @@ class _DialogAdicionarFilme(QDialog):
         layout.addRow("Gênero:", self._genero)
 
         rodape = QHBoxLayout()
-        btn_cancelar = QPushButton("Cancelar")
+        btn_cancelar = BotaoOrbe("Cancelar")
         btn_cancelar.setObjectName("botaoCancelar")
         btn_cancelar.clicked.connect(self.reject)
-        btn_salvar = QPushButton("Salvar")
+        btn_salvar = BotaoOrbe("Salvar")
         btn_salvar.setObjectName("botaoSalvar")
         btn_salvar.clicked.connect(self._salvar)
         rodape.addStretch()
@@ -136,7 +137,7 @@ class _CardFilme(QFrame):
         col_info.addWidget(lbl_titulo)
         col_info.addWidget(lbl_detalhe)
 
-        self._btn_coracao = QPushButton()
+        self._btn_coracao = BotaoOrbe()
         self._btn_coracao.setObjectName("botaoCoracao")
         self._btn_coracao.setFixedSize(40, 40)
         self._btn_coracao.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -183,7 +184,7 @@ class Filmes(TelaBase):
         layout.setSpacing(14)
 
         cabecalho = QHBoxLayout()
-        btn_voltar = QPushButton("← Voltar")
+        btn_voltar = BotaoOrbe("← Voltar")
         btn_voltar.setObjectName("botaoVoltar")
         btn_voltar.clicked.connect(self._voltar)
 
@@ -191,7 +192,7 @@ class Filmes(TelaBase):
         titulo.setObjectName("titulo")
         titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        btn_adicionar = QPushButton("+ Adicionar")
+        btn_adicionar = BotaoOrbe("+ Adicionar")
         btn_adicionar.setObjectName("botaoAdicionar")
         btn_adicionar.clicked.connect(self._abrir_dialog)
 

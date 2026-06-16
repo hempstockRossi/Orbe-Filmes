@@ -1,12 +1,13 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QPushButton, QLabel, QVBoxLayout, QHBoxLayout,
+    QLabel, QVBoxLayout, QHBoxLayout,
     QScrollArea, QWidget, QFrame, QDialog,
     QFormLayout, QComboBox, QMessageBox,
     QStackedWidget, QLineEdit, QSpinBox,
 )
 
 from ui.tela_base import TelaBase
+from ui.botao import BotaoOrbe
 import db
 
 _DIALOG_STYLE = """
@@ -81,11 +82,11 @@ class _DialogAdicionar(QDialog):
 
         toggle = QHBoxLayout()
         toggle.setSpacing(6)
-        self._btn_existente = QPushButton("Filme existente")
+        self._btn_existente = BotaoOrbe("Filme existente")
         self._btn_existente.setObjectName("toggleAtivo")
         self._btn_existente.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_existente.clicked.connect(lambda: self._mudar_modo(False))
-        self._btn_novo = QPushButton("Novo filme")
+        self._btn_novo = BotaoOrbe("Novo filme")
         self._btn_novo.setObjectName("toggleInativo")
         self._btn_novo.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_novo.clicked.connect(lambda: self._mudar_modo(True))
@@ -133,10 +134,10 @@ class _DialogAdicionar(QDialog):
         layout.addStretch()
 
         rodape = QHBoxLayout()
-        btn_cancelar = QPushButton("Cancelar")
+        btn_cancelar = BotaoOrbe("Cancelar")
         btn_cancelar.setObjectName("botaoCancelar")
         btn_cancelar.clicked.connect(self.reject)
-        btn_salvar = QPushButton("Adicionar")
+        btn_salvar = BotaoOrbe("Adicionar")
         btn_salvar.setObjectName("botaoSalvar")
         btn_salvar.clicked.connect(self._salvar)
         rodape.addStretch()
@@ -200,14 +201,14 @@ class _CardPendente(QFrame):
         col_info.addWidget(lbl_titulo)
         col_info.addWidget(lbl_detalhe)
 
-        btn_assistido = QPushButton("✓  Assistido")
+        btn_assistido = BotaoOrbe("✓  Assistido")
         btn_assistido.setObjectName("botaoAssistido")
         btn_assistido.setFixedHeight(34)
         btn_assistido.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_assistido.setToolTip("Marcar como assistido")
         btn_assistido.clicked.connect(self._marcar)
 
-        btn_excluir = QPushButton("✕")
+        btn_excluir = BotaoOrbe("✕")
         btn_excluir.setObjectName("botaoDeletar")
         btn_excluir.setFixedSize(34, 34)
         btn_excluir.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -263,7 +264,7 @@ class _CardAssistido(QFrame):
         lbl_data = QLabel(f"✓  {data_str}")
         lbl_data.setObjectName("cardAssistidoData")
 
-        btn_excluir = QPushButton("✕")
+        btn_excluir = BotaoOrbe("✕")
         btn_excluir.setObjectName("botaoDeletar")
         btn_excluir.setFixedSize(34, 34)
         btn_excluir.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -294,7 +295,7 @@ class Assistir(TelaBase):
 
         # Cabeçalho
         cabecalho = QHBoxLayout()
-        btn_voltar = QPushButton("← Voltar")
+        btn_voltar = BotaoOrbe("← Voltar")
         btn_voltar.setObjectName("botaoVoltar")
         btn_voltar.clicked.connect(self._voltar)
 
@@ -302,7 +303,7 @@ class Assistir(TelaBase):
         titulo.setObjectName("titulo")
         titulo.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self._btn_adicionar = QPushButton("+ Adicionar")
+        self._btn_adicionar = BotaoOrbe("+ Adicionar")
         self._btn_adicionar.setObjectName("botaoAdicionar")
         self._btn_adicionar.clicked.connect(self._abrir_dialog)
 
@@ -316,12 +317,12 @@ class Assistir(TelaBase):
         # Abas
         abas = QHBoxLayout()
         abas.setSpacing(6)
-        self._btn_aba_pendente = QPushButton("A Assistir")
+        self._btn_aba_pendente = BotaoOrbe("A Assistir")
         self._btn_aba_pendente.setObjectName("abaAtiva")
         self._btn_aba_pendente.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_aba_pendente.clicked.connect(lambda: self._mudar_aba(0))
 
-        self._btn_aba_assistidos = QPushButton("Assistidos")
+        self._btn_aba_assistidos = BotaoOrbe("Assistidos")
         self._btn_aba_assistidos.setObjectName("abaInativa")
         self._btn_aba_assistidos.setCursor(Qt.CursorShape.PointingHandCursor)
         self._btn_aba_assistidos.clicked.connect(lambda: self._mudar_aba(1))

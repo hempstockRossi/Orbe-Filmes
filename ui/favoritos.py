@@ -1,10 +1,11 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QPushButton, QLabel, QVBoxLayout, QHBoxLayout,
+    QLabel, QVBoxLayout, QHBoxLayout,
     QScrollArea, QWidget, QFrame,
 )
 
 from ui.tela_base import TelaBase
+from ui.botao import BotaoOrbe
 import db
 
 
@@ -37,7 +38,7 @@ class _CardFavorito(QFrame):
         col_info.addWidget(lbl_titulo)
         col_info.addWidget(lbl_detalhe)
 
-        btn_remover = QPushButton("♥")
+        btn_remover = BotaoOrbe("♥")
         btn_remover.setObjectName("botaoCoracao")
         btn_remover.setFixedSize(40, 40)
         btn_remover.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -69,7 +70,7 @@ class Favoritos(TelaBase):
         layout.setSpacing(14)
 
         cabecalho = QHBoxLayout()
-        btn_voltar = QPushButton("← Voltar")
+        btn_voltar = BotaoOrbe("← Voltar")
         btn_voltar.setObjectName("botaoVoltar")
         btn_voltar.clicked.connect(self._voltar)
 

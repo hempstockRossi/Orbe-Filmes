@@ -1,11 +1,12 @@
 from PySide6.QtCore import Qt, QDate
 from PySide6.QtWidgets import (
-    QPushButton, QLabel, QVBoxLayout, QHBoxLayout,
+    QLabel, QVBoxLayout, QHBoxLayout,
     QScrollArea, QWidget, QFrame, QTextEdit,
     QComboBox, QDoubleSpinBox, QDateEdit, QMessageBox,
 )
 
 from ui.tela_base import TelaBase
+from ui.botao import BotaoOrbe
 import db
 
 
@@ -31,7 +32,7 @@ class _CardComentario(QFrame):
         lbl_nota = QLabel(f"★ {self._comentario['nota']:.1f}")
         lbl_nota.setObjectName("cardNota")
 
-        btn_del = QPushButton("✕")
+        btn_del = BotaoOrbe("✕")
         btn_del.setObjectName("botaoDeletar")
         btn_del.setFixedSize(26, 26)
         btn_del.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -77,7 +78,7 @@ class Comentarios(TelaBase):
         layout.setSpacing(14)
 
         cabecalho = QHBoxLayout()
-        btn_voltar = QPushButton("← Voltar")
+        btn_voltar = BotaoOrbe("← Voltar")
         btn_voltar.setObjectName("botaoVoltar")
         btn_voltar.clicked.connect(self._voltar)
 
@@ -133,7 +134,7 @@ class Comentarios(TelaBase):
         self._nota.setPrefix("★  ")
         self._nota.setFixedWidth(100)
 
-        btn_salvar = QPushButton("Salvar comentário")
+        btn_salvar = BotaoOrbe("Salvar comentário")
         btn_salvar.setObjectName("botaoSalvar")
         btn_salvar.setCursor(Qt.CursorShape.PointingHandCursor)
         btn_salvar.clicked.connect(self._salvar_comentario)

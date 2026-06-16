@@ -1,10 +1,11 @@
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QPushButton, QLabel, QVBoxLayout, QGraphicsDropShadowEffect
+    QLabel, QVBoxLayout, QGraphicsDropShadowEffect
 )
 
 from ui.tela_base import TelaBase
+from ui.botao import BotaoOrbe
 
 
 class Home(TelaBase):
@@ -27,7 +28,7 @@ class Home(TelaBase):
         efeito_logo.setOffset(0, 0)
         logo.setGraphicsEffect(efeito_logo)
 
-        self._botao = QPushButton("Entrar")
+        self._botao = BotaoOrbe("Entrar")
         self._botao.setObjectName("botao")
         self._botao.setFixedSize(180, 50)
         self._botao.installEventFilter(self)
