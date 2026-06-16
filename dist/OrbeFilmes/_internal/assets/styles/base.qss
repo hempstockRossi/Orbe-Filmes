@@ -1,0 +1,40 @@
+/* =====================
+   BASE (carregado por todas as telas)
+===================== */
+
+QWidget {
+    font-family: "Outfit";
+    color: white;
+    background: transparent;
+}
+
+/* =====================
+   TÍTULO
+===================== */
+
+#titulo {
+    font-family: "Orbitron";
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    color: #DBE2EF;
+    background: transparent;
+}
+
+/* =====================
+   BOTÃO VOLTAR
+===================== */
+
+#botaoVoltar {
+    padding: 8px 20px;
+    background: rgba(63, 114, 175, 100);
+    color: white;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 50);
+    font-size: 14px;
+}
+
+#botaoVoltar:hover {
+    background: #3F72AF;
+    border-color: #DBE2EF;
+}

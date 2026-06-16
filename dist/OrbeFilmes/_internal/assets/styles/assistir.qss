@@ -1,0 +1,125 @@
+/* =====================
+   ASSISTIR
+===================== */
+
+#botaoAdicionar {
+    padding: 8px 20px;
+    background: rgba(63, 114, 175, 130);
+    color: white;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 50);
+    font-size: 13px;
+}
+#botaoAdicionar:hover {
+    background: #3F72AF;
+    border-color: #DBE2EF;
+}
+
+/* Abas */
+#abaAtiva {
+    background: #3F72AF;
+    color: white;
+    border-radius: 10px;
+    padding: 7px 22px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+}
+#abaInativa {
+    background: rgba(63, 114, 175, 22);
+    color: rgba(219, 226, 239, 140);
+    border-radius: 10px;
+    padding: 7px 22px;
+    font-size: 13px;
+    border: 1px solid rgba(63, 114, 175, 60);
+}
+#abaInativa:hover {
+    background: rgba(63, 114, 175, 50);
+    color: white;
+}
+
+/* Scroll */
+QScrollArea { background: transparent; border: none; }
+#scrollContainer { background: transparent; }
+
+QScrollBar:vertical {
+    background: rgba(63, 114, 175, 18);
+    width: 5px;
+    border-radius: 3px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: rgba(63, 114, 175, 140);
+    border-radius: 3px;
+    min-height: 28px;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical { height: 0; }
+
+/* Card A Assistir */
+#cardAssistir {
+    background: rgba(63, 114, 175, 20);
+    border: 1px solid rgba(63, 114, 175, 65);
+    border-radius: 12px;
+}
+#cardAssistir:hover {
+    background: rgba(63, 114, 175, 40);
+    border-color: rgba(63, 114, 175, 140);
+}
+
+/* Card Assistido */
+#cardAssistido {
+    background: rgba(39, 174, 96, 12);
+    border: 1px solid rgba(39, 174, 96, 50);
+    border-radius: 12px;
+}
+#cardAssistido:hover {
+    background: rgba(39, 174, 96, 22);
+    border-color: rgba(39, 174, 96, 100);
+}
+
+#cardFilmeTitulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #DBE2EF;
+}
+#cardFilmeDetalhe {
+    font-size: 12px;
+    color: rgba(219, 226, 239, 135);
+}
+
+/* Badge de data/hora nos assistidos */
+#cardAssistidoData {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(39, 174, 96, 220);
+    padding: 4px 10px;
+    background: rgba(39, 174, 96, 18);
+    border-radius: 8px;
+    border: 1px solid rgba(39, 174, 96, 50);
+}
+
+/* Botão marcar como assistido */
+#botaoAssistido {
+    background: rgba(39, 174, 96, 30);
+    border: 1px solid rgba(39, 174, 96, 80);
+    color: rgba(39, 174, 96, 220);
+    border-radius: 8px;
+    padding: 0 14px;
+    font-size: 13px;
+}
+#botaoAssistido:hover {
+    background: rgba(39, 174, 96, 60);
+    border-color: rgba(39, 174, 96, 160);
+    color: #2ECC71;
+}
+
+/* Botão excluir */
+#botaoDeletar {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 50);
+    font-size: 12px;
+    border-radius: 8px;
+}
+#botaoDeletar:hover { color: #E74C3C; }
