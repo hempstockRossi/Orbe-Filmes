@@ -1,0 +1,72 @@
+/* =====================
+   FILMES
+===================== */
+
+#botaoAdicionar {
+    padding: 8px 20px;
+    background: rgba(63, 114, 175, 130);
+    color: white;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 50);
+    font-size: 13px;
+}
+#botaoAdicionar:hover {
+    background: #3F72AF;
+    border-color: #DBE2EF;
+}
+
+#campoBusca {
+    background: rgba(63, 114, 175, 28);
+    border: 1px solid rgba(63, 114, 175, 90);
+    border-radius: 22px;
+    color: white;
+    padding: 9px 20px;
+    font-size: 13px;
+    selection-background-color: #3F72AF;
+}
+#campoBusca:focus {
+    border-color: rgba(63, 114, 175, 200);
+    background: rgba(63, 114, 175, 50);
+}
+
+QScrollArea {
+    background: transparent;
+    border: none;
+}
+#scrollContainer {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    background: rgba(63, 114, 175, 18);
+    width: 5px;
+    border-radius: 3px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: rgba(63, 114, 175, 140);
+    border-radius: 3px;
+    min-height: 28px;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical { height: 0; }
+
+#cardFilme {
+    background: rgba(63, 114, 175, 20);
+    border: 1px solid rgba(63, 114, 175, 65);
+    border-radius: 12px;
+}
+#cardFilme:hover {
+    background: rgba(63, 114, 175, 42);
+    border-color: rgba(63, 114, 175, 140);
+}
+
+#cardFilmeTitulo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #DBE2EF;
+}
+#cardFilmeDetalhe {
+    font-size: 12px;
+    color: rgba(219, 226, 239, 135);
+}

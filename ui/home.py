@@ -1,13 +1,10 @@
-import sys
-
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QApplication, QPushButton, QLabel, QVBoxLayout,
-    QGraphicsDropShadowEffect
+    QPushButton, QLabel, QVBoxLayout, QGraphicsDropShadowEffect
 )
 
-from tela_base import TelaBase
+from ui.tela_base import TelaBase
 
 
 class Home(TelaBase):
@@ -43,7 +40,7 @@ class Home(TelaBase):
         self._carregar_estilo("home.qss")
 
     def _abrir_dashboard(self):
-        from dashboard import Dashboard
+        from ui.dashboard import Dashboard
         self._proxima_tela = Dashboard()
         self._proxima_tela.show()
         self.close()
@@ -59,10 +56,3 @@ class Home(TelaBase):
             elif evento.type() == QEvent.Type.Leave:
                 self._botao.setGraphicsEffect(None)
         return super().eventFilter(obj, evento)
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    janela = Home()
-    janela.show()
-    sys.exit(app.exec())

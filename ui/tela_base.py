@@ -1,12 +1,14 @@
 import random
 import math
-import os
+from pathlib import Path
 
 from PySide6.QtCore import Qt, QTimer, QRectF
-from PySide6.QtGui import (
-    QPainter, QColor, QRadialGradient, QBrush, QFontDatabase
-)
+from PySide6.QtGui import QPainter, QColor, QRadialGradient, QBrush, QFontDatabase
 from PySide6.QtWidgets import QWidget
+
+_RAIZ = Path(__file__).parent.parent
+_STYLES = _RAIZ / "assets" / "styles"
+_FONTS = _RAIZ / "assets" / "fonts"
 
 
 class TelaBase(QWidget):
@@ -27,26 +29,22 @@ class TelaBase(QWidget):
         self._temporizador.timeout.connect(self._pulso)
         self._temporizador.start(30)
 
-    # ─── Fontes ──────────────────────────────────────────────────────────────
-
     def _carregar_fontes(self):
-        for caminho in ["fonts/Orbitron.ttf", "fonts/Outfit.ttf"]:
-            if os.path.exists(caminho):
-                QFontDatabase.addApplicationFont(caminho)
-
-    # ─── Estilo ──────────────────────────────────────────────────────────────
+        for fonte in ["Orbitron.ttf", "Outfit.ttf"]:
+            caminho = _FONTS / fonte
+            if caminho.exists():
+                QFontDatabase.addApplicationFont(str(caminho))
 
     def _carregar_estilo(self, arquivo_qss):
         estilo = ""
-        for caminho in ["base.qss", arquivo_qss]:
+        for nome in ["base.qss", arquivo_qss]:
+            caminho = _STYLES / nome
             try:
                 with open(caminho, "r", encoding="utf-8") as f:
                     estilo += f.read() + "\n"
             except FileNotFoundError:
                 pass
         self.setStyleSheet(estilo)
-
-    # ─── Estrelas ────────────────────────────────────────────────────────────
 
     def _criar_estrelas(self, quantidade=120):
         largura = self.width() or 900
@@ -66,8 +64,6 @@ class TelaBase(QWidget):
         self._tempo += 0.05
         self.update()
 
-    # ─── Eventos Qt ──────────────────────────────────────────────────────────
-
     def resizeEvent(self, evento):
         self._estrelas = self._criar_estrelas()
         super().resizeEvent(evento)
@@ -77,23 +73,19 @@ class TelaBase(QWidget):
         pintor.setRenderHint(QPainter.RenderHint.Antialiasing)
         largura, altura = self.width(), self.height()
 
-        # Fundo sólido base
         pintor.fillRect(self.rect(), QColor(2, 3, 10))
 
-        # Gradiente radial do topo
         gradiente = QRadialGradient(largura / 2, 0, altura)
         gradiente.setColorAt(0.00, QColor(17, 45, 78))
         gradiente.setColorAt(0.45, QColor(5,  8,  22))
         gradiente.setColorAt(1.00, QColor(2,  3,  10))
         pintor.fillRect(self.rect(), gradiente)
 
-        # Brilho azul difuso no topo
         brilho_topo = QRadialGradient(largura / 2, 0, min(largura, altura) * 0.55)
         brilho_topo.setColorAt(0.0, QColor(63, 114, 175, 36))
         brilho_topo.setColorAt(1.0, QColor(63, 114, 175,  0))
         pintor.fillRect(self.rect(), brilho_topo)
 
-        # Estrelas piscando
         pintor.setPen(Qt.PenStyle.NoPen)
         for estrela in self._estrelas:
             opacidade = 0.2 + 0.6 * (0.5 + 0.5 * math.sin(

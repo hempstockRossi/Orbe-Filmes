@@ -1,0 +1,134 @@
+/* =====================
+   COMENTÁRIOS
+===================== */
+
+QScrollArea {
+    background: transparent;
+    border: none;
+}
+#scrollContainer {
+    background: transparent;
+}
+
+QScrollBar:vertical {
+    background: rgba(63, 114, 175, 18);
+    width: 5px;
+    border-radius: 3px;
+    margin: 0;
+}
+QScrollBar::handle:vertical {
+    background: rgba(63, 114, 175, 140);
+    border-radius: 3px;
+    min-height: 28px;
+}
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical { height: 0; }
+
+/* Formulário */
+#formComentario {
+    background: rgba(63, 114, 175, 18);
+    border: 1px solid rgba(63, 114, 175, 80);
+    border-radius: 14px;
+}
+
+#formTitulo {
+    font-family: "Orbitron";
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: rgba(219, 226, 239, 160);
+}
+
+#formLabel {
+    font-size: 12px;
+    color: rgba(219, 226, 239, 160);
+}
+
+#comboFilmes {
+    background: rgba(63, 114, 175, 38);
+    border: 1px solid rgba(63, 114, 175, 100);
+    border-radius: 8px;
+    color: white;
+    padding: 7px 12px;
+    font-size: 13px;
+    min-height: 34px;
+}
+#comboFilmes:focus { border-color: #3F72AF; }
+#comboFilmes::drop-down { border: none; width: 22px; }
+#comboFilmes QAbstractItemView {
+    background: #0D1B2A;
+    border: 1px solid rgba(63, 114, 175, 150);
+    color: white;
+    selection-background-color: #3F72AF;
+    outline: none;
+}
+
+#textoComentario {
+    background: rgba(63, 114, 175, 28);
+    border: 1px solid rgba(63, 114, 175, 100);
+    border-radius: 8px;
+    color: white;
+    padding: 8px 12px;
+    font-size: 13px;
+}
+#textoComentario:focus { border-color: #3F72AF; }
+
+#dataEdit, #notaSpinBox {
+    background: rgba(63, 114, 175, 38);
+    border: 1px solid rgba(63, 114, 175, 100);
+    border-radius: 8px;
+    color: white;
+    padding: 6px 10px;
+    font-size: 13px;
+    min-height: 32px;
+}
+#dataEdit:focus, #notaSpinBox:focus { border-color: #3F72AF; }
+#dataEdit::up-button, #dataEdit::down-button,
+#notaSpinBox::up-button, #notaSpinBox::down-button {
+    background: rgba(63, 114, 175, 80);
+    border: none;
+    width: 18px;
+}
+
+#botaoSalvar {
+    background: #3F72AF;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-size: 13px;
+    border: none;
+    min-height: 34px;
+}
+#botaoSalvar:hover { background: #5589C4; }
+
+/* Cards de comentário */
+#cardComentario {
+    background: rgba(63, 114, 175, 20);
+    border: 1px solid rgba(63, 114, 175, 65);
+    border-radius: 12px;
+}
+#cardComentario:hover {
+    background: rgba(63, 114, 175, 38);
+    border-color: rgba(63, 114, 175, 130);
+}
+
+#cardNota {
+    font-size: 14px;
+    font-weight: bold;
+    color: #F1C40F;
+}
+
+#botaoDeletar {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 50);
+    font-size: 11px;
+    border-radius: 4px;
+    padding: 2px;
+}
+#botaoDeletar:hover { color: #E74C3C; }
+
+#cardComentarioData {
+    font-size: 11px;
+    color: rgba(219, 226, 239, 75);
+}

@@ -1,13 +1,11 @@
-import sys
-
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QColor
 from PySide6.QtWidgets import (
-    QApplication, QLabel, QVBoxLayout, QHBoxLayout,
+    QLabel, QVBoxLayout, QHBoxLayout,
     QFrame, QGraphicsDropShadowEffect
 )
 
-from tela_base import TelaBase
+from ui.tela_base import TelaBase
 
 
 class CartaoClicavel(QFrame):
@@ -57,6 +55,7 @@ class Dashboard(TelaBase):
             ("FILMES",       "Catálogo de filmes"),
             ("FAVORITOS",    "Sua lista salva"),
             ("COMENTÁRIOS",  "Suas avaliações"),
+            ("ASSISTIR",     "Próximos a assistir"),
         ]
 
         for nome, descricao in dados:
@@ -84,20 +83,16 @@ class Dashboard(TelaBase):
 
     def _abrir_tela(self, nome):
         if nome == "FILMES":
-            from filmes import Filmes
+            from ui.filmes import Filmes
             self._proxima_tela = Filmes()
         elif nome == "FAVORITOS":
-            from favoritos import Favoritos
+            from ui.favoritos import Favoritos
             self._proxima_tela = Favoritos()
         elif nome == "COMENTÁRIOS":
-            from comentarios import Comentarios
+            from ui.comentarios import Comentarios
             self._proxima_tela = Comentarios()
+        elif nome == "ASSISTIR":
+            from ui.assistir import Assistir
+            self._proxima_tela = Assistir()
         self._proxima_tela.show()
         self.close()
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    janela = Dashboard()
-    janela.show()
-    sys.exit(app.exec())
