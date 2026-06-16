@@ -1,0 +1,38 @@
+/* =====================
+   TÍTULO DO DASHBOARD
+===================== */
+
+#titulo {
+    font-size: 36px;
+    letter-spacing: 8px;
+}
+
+/* =====================
+   CARDS
+===================== */
+
+#card {
+    min-height: 120px;
+    background: rgba(16, 42, 76, 130);
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 35);
+    padding: 20px;
+}
+
+#card:hover {
+    background: rgba(63, 114, 175, 90);
+    border-color: #3F72AF;
+}
+
+#cardTitulo {
+    font-family: "Orbitron";
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #3F72AF;
+}
+
+#cardTexto {
+    font-family: "Outfit";
+    font-size: 14px;
+    color: #AEBFD1;
+}
